@@ -1,0 +1,7 @@
+Virtual memory is a memory management technique used by operating systems. It allows a process to use an address space that can be larger than the available physical RAM. The operating system uses disk storage to hold pages that are not currently in RAM.
+
+A page fault occurs when a process accesses a virtual memory page that is not currently present in physical memory. The operating system handles the page fault by locating the required page on disk, loading it into RAM, updating the page table, and allowing the process to continue.
+
+TCP stands for Transmission Control Protocol. TCP provides reliable, ordered, and error-checked delivery of data between applications. It establishes a connection between the sender and receiver before transmitting data.
+
+A mutex is a synchronization mechanism used to protect shared resources from being accessed by multiple threads at the same time. Only one thread can own a mutex at a time.
