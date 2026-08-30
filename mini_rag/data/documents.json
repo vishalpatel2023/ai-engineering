@@ -1,0 +1,42 @@
+[
+    {
+        "id": "doc1",
+        "text": "Virtual memory is a memory management technique that allows an operating system to use disk storage as an extension of physical RAM. It allows programs to use more memory than is physically available."
+    },
+    {
+        "id": "doc2",
+        "text": "A page fault occurs when a process tries to access a memory page that is not currently available in physical memory. The operating system must load the required page from disk into RAM."
+    },
+    {
+        "id": "doc3",
+        "text": "CPU cache is a small and fast memory located close to the processor. It stores frequently accessed data and instructions so the CPU can access them faster than accessing main memory."
+    },
+    {
+        "id": "doc4",
+        "text": "Binary search is an efficient searching algorithm for sorted data. It repeatedly divides the search space in half and has a time complexity of O(log n)."
+    },
+    {
+        "id": "doc5",
+        "text": "A linked list is a data structure made of nodes. Each node contains data and a reference to another node. Nodes in a linked list do not need to occupy contiguous memory locations."
+    },
+    {
+        "id": "doc6",
+        "text": "A process is a program in execution. A process has its own address space and system resources."
+    },
+    {
+        "id": "doc7",
+        "text": "A thread is a lightweight unit of execution within a process. Multiple threads belonging to the same process share resources such as memory."
+    },
+    {
+        "id": "doc8",
+        "text": "A mutex is a synchronization mechanism used to ensure that only one thread at a time can access a protected critical section."
+    },
+    {
+        "id": "doc9",
+        "text": "A semaphore is a synchronization primitive that maintains a counter and can be used to control access to shared resources."
+    },
+    {
+        "id": "doc10",
+        "text": "TCP is a connection-oriented transport protocol that provides reliable and ordered delivery of data. UDP is connectionless and generally provides lower overhead but does not guarantee delivery."
+    }
+]
