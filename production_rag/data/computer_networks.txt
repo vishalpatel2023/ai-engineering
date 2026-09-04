@@ -1,0 +1,5 @@
+TCP stands for Transmission Control Protocol. TCP provides reliable and ordered delivery of data.
+
+UDP is a connectionless transport protocol. It does not guarantee delivery or ordering.
+
+An IP address identifies a device or network interface on a network.

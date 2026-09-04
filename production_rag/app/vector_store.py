@@ -37,6 +37,8 @@ def save_vectors(chunks):
         embeddings.append(chunk["embedding"])
 
         metadatas.append({
+            "source": chunk["source"],
+            "page": chunk["page"] if chunk["page"] else -1,
             "chunk_index": chunk["chunk_index"]
         })
 
@@ -66,7 +68,8 @@ def search(query_vector, top_k=2):
         retrieved.append({
             "id": results["ids"][0][i],
             "text": results["documents"][0][i],
-            "score": results["distances"][0][i]
+            "score": results["distances"][0][i],
+            "metadata": results["metadatas"][0][i]
         })
 
     return retrieved

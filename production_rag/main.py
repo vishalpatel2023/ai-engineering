@@ -1,4 +1,4 @@
-from app.ingest import ingest_document
+from app.ingest import ingest_documents
 from app.vector_store import (
     save_vectors,
     search,
@@ -10,9 +10,7 @@ from app.llm import generate_answer
 
 def main():
 
-    # --------------------------------
     # 1. Check ChromaDB
-    # --------------------------------
 
     total = count()
 
@@ -21,7 +19,7 @@ def main():
         print("No documents found in ChromaDB.")
         print("Creating embeddings...\n")
 
-        chunks = ingest_document("data/notes.txt")
+        chunks = ingest_documents("data")
 
         save_vectors(chunks)
 
@@ -32,9 +30,9 @@ def main():
         )
 
 
-    print("\n==============================")
+    print("\n----------------------------")
     print("        DOCUMENT RAG")
-    print("==============================")
+    print("------------------------------")
 
 
     # 2. Question loop
@@ -59,10 +57,18 @@ def main():
 
         # 4. Search ChromaDB
 
-        results = search(
-            query_vector,
-            top_k=2
-        )
+        # results = search(
+        #     query_vector,
+        #     top_k=2
+        # )
+
+        results = search(query_vector, top_k=3)
+
+        results = [
+            result
+            for result in results
+            if result["score"] < 0.8
+        ]
 
         # 5. Display results
 
@@ -70,23 +76,42 @@ def main():
         print("RETRIEVED CHUNKS")
         print("------------------------------")
 
+        for rank, result in enumerate(results, start=1):
 
-        for rank, result in enumerate(
-            results,
-            start=1
-        ):
+            metadata = result["metadata"]
 
             print(f"\nRank {rank}")
-            print(f"ID: {result['id']}")
+            print(f"Source: {metadata['source']}")
+
+            if metadata["page"] != -1:
+                print(f"Page: {metadata['page']}")
+
             print(f"Distance: {result['score']:.4f}")
             print(f"Text: {result['text']}")
 
         # 6. Build context
 
-        context = "\n\n".join(
-            result["text"]
-            for result in results
-        )
+        context_parts = []
+
+        for result in results:
+
+            metadata = result["metadata"]
+
+            source = metadata["source"]
+
+            if metadata["page"] != -1:
+                source += f", page {metadata['page']}"
+
+            context_parts.append(
+                f"[Source: {source}]\n{result['text']}"
+            )
+
+        context = "\n\n".join(context_parts)
+
+        # context = "\n\n".join(
+        #     result["text"]
+        #     for result in results
+        # )
 
         # 7. Generate answer
 

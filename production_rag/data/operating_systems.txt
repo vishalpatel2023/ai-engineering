@@ -1,0 +1,5 @@
+A process is a program in execution. A thread is the smallest unit of CPU execution within a process.
+
+Virtual memory allows processes to use an address space larger than the available physical RAM.
+
+A page fault occurs when a process accesses a page that is not currently present in physical memory.

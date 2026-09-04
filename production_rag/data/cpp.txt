@@ -1,0 +1,5 @@
+A class in C++ is a user-defined type that combines data and functions.
+
+Inheritance allows a derived class to reuse and extend the functionality of a base class.
+
+Virtual functions enable runtime polymorphism in C++.

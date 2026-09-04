@@ -1,0 +1,5 @@
+Retrieval Augmented Generation combines information retrieval with language generation.
+
+Embeddings represent text as numerical vectors.
+
+A vector database stores embeddings and allows similarity search.
